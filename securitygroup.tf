@@ -1,7 +1,7 @@
 ##Security Group - SSH and HTTP Access
 
 resource "aws_security_group" "demo-sg" {
-  name        = "demo-sg"
+  name        = "demo-sga"
   description = "allow ssh and http traffic"
 
   ingress {
