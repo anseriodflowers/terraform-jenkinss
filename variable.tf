@@ -1,3 +1,5 @@
+##Variables only used by myself
+
 variable "access_key" {
   default = "AKIAVW373IOJVZFJSHHR"
   }

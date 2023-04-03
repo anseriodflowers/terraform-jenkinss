@@ -1,3 +1,5 @@
+##Security Group - SSH and HTTP Access
+
 resource "aws_security_group" "demo-sg" {
   name        = "demo-sg"
   description = "allow ssh and http traffic"
