@@ -10,7 +10,7 @@ pipeline {
                 git branch: 'terraform-ec2', credentialsId: '', url: 'https://github.com/anseriodflowers/terraform-jenkinss.git'
             }
         }
-               stage ("terraform init") {
+        stage ("terraform init") {
             steps {
                 sh 'terraform init'
             }
@@ -30,6 +30,5 @@ pipeline {
                 sh 'terraform apply -auto-approve'
             }
         }
-    }
     }
 }
