@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ("checkout from GIT") {
             steps {
-                git branch: 'terraform-ec2', credentialsId: 'AWSCert', url: 'https://github.com/anseriodflowers/terraform-jenkinss.git'
+                git branch: 'terraform-ec2', credentialsId: 'AWSCerts', url: 'https://github.com/anseriodflowers/terraform-jenkinss.git'
             }
         }
         stage ("terraform init") {
