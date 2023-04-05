@@ -21,6 +21,7 @@ provider "aws" {
 resource "aws_instance" "myec2vm" {
   ami = "ami-04581fbf744a7d11f"
   instance_type = "t2.micro"
+  user_data = file("app1-install.sh")
  # user_data = file("app1-install.sh")
   tags = {
     "Name" = "Jenkins - Terraform Demo"
