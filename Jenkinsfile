@@ -22,12 +22,28 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                sh 'terraform plan '
+                
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWSCerts',
+                        ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']]) { 
+                            sh 'terraform plan'
+                        }
+
             }
         }
         stage ("terraform apply") {
             steps {
-                sh 'terraform apply -auto-approve'
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWSCerts',
+                        ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']]) { 
+                            sh 'terraform ${action} -auto-approve'
+                        }
+            }
+        }
+        stage ("terraform destroy") {
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWSCerts',
+                        ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']]) { 
+                            sh 'terraform ${action} -auto-approve'
+                        }
             }
         }
     }
